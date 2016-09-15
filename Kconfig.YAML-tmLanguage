@@ -38,18 +38,18 @@ patterns:
 - name: comment.kconfig
   match: (\#.*$)
 
+- comment: Help Text
+  name: entity.name.tag.menu.attributes.kconfig
+  begin: \thelp\n
+  end: ^config
+  patterns:
+  - include: $self
+  - name: string.quoted.kconfig
+    match: '.*'
+
 - comment: Possible Config Values
   name: constant.language.kconfig
   match: \b(y|n|m)\b
-
-# - comment: Help Text
-#   name: string.block.kconfig
-#   begin: 'help\n'
-#   end: \n\n
-#   patterns:
-#   - include: $self
-#   - name: string.block.kconfig
-#     match: .
 
 - comment: Kconfig Type Definition
   name: storage.type.definition.kconfig
@@ -57,7 +57,7 @@ patterns:
 
 - comment: Menu Attributes
   name: entity.name.tag.menu.attributes.kconfig
-  match: (?i)\t\b(help|default|prompt|depends|range|option|select)?\b
+  match: (?i)\t\b(default|def_bool|prompt|depends|range|option|select)?\b
 
 - comment: Flow Control
   name: keyword.control.kconfig

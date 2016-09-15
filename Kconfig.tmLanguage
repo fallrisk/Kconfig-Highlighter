@@ -23,6 +23,29 @@
 			<string>comment.kconfig</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>\thelp\n</string>
+			<key>comment</key>
+			<string>Help Text</string>
+			<key>end</key>
+			<string>^config</string>
+			<key>name</key>
+			<string>entity.name.tag.menu.attributes.kconfig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>$self</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>.*</string>
+					<key>name</key>
+					<string>string.quoted.kconfig</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>Possible Config Values</string>
 			<key>match</key>
@@ -42,7 +65,7 @@
 			<key>comment</key>
 			<string>Menu Attributes</string>
 			<key>match</key>
-			<string>(?i)\t\b(help|default|prompt|depends|range|option|select)?\b</string>
+			<string>(?i)\t\b(default|def_bool|prompt|depends|range|option|select)?\b</string>
 			<key>name</key>
 			<string>entity.name.tag.menu.attributes.kconfig</string>
 		</dict>
