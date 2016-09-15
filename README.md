@@ -4,6 +4,6 @@ Sublime Text 3 highlight script for the [Kconfig language](https://www.kernel.or
 # Contributing
 You can send pull requests via GitHub. Do *not* edit the
 `Kconfig.tmLanguage` file directly. Edit the
-`Kconfig.JSON-tmLanguage` file instead and build the `.tmLanguage` file
-from it using the _JSON to Property List_ build tool in
+`Kconfig.YAML-tmLanguage` file instead and build the `.tmLanguage` file
+from it using the _YAML to Property List_ build tool in
 [PackageDev](https://github.com/SublimeText/PackageDev).
