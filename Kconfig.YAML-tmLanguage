@@ -23,8 +23,15 @@
 # before EN in the file. Otherwise you will end up with EN the right color
 # but not the D.
 #
-# To match using characters, but not include characterse in the highlight use
+# To match using characters, but not include characterse in the highlight use...
 #
+#     Note that the regular expressions are matched against only a single line
+#     of the document at a time. That means it is not possible to use a pattern
+#     that matches multiple lines. The reason for this is technical: being able
+#     to restart the parser at an arbitrary line and having to re-parse only the
+#     minimal number of lines affected by an edit. In most situations it is
+#     possible to use the begin/end model to overcome this limitation
+#     [http://manual.macromates.com/en/language_grammars#language_grammars].
 #
 name: Kconfig
 scopeName: source.kconfig
