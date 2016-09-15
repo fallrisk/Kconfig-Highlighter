@@ -18,7 +18,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(\*.*$|\#.*$)</string>
+			<string>(\#.*$)</string>
 			<key>name</key>
 			<string>comment.kconfig</string>
 		</dict>
@@ -34,7 +34,7 @@
 			<key>comment</key>
 			<string>Kconfig Type Definition</string>
 			<key>match</key>
-			<string>(?i)\b(bool|tristate|string|hex|int)</string>
+			<string>(?i)\t\b(bool|tristate|string|hex|int)</string>
 			<key>name</key>
 			<string>storage.type.definition.kconfig</string>
 		</dict>
@@ -42,7 +42,7 @@
 			<key>comment</key>
 			<string>Menu Attributes</string>
 			<key>match</key>
-			<string>(?i)\b(help|default|prompt|depends|range|option)?\b</string>
+			<string>(?i)\t\b(help|default|prompt|depends|range|option|select)?\b</string>
 			<key>name</key>
 			<string>entity.name.tag.menu.attributes.kconfig</string>
 		</dict>
@@ -50,17 +50,25 @@
 			<key>comment</key>
 			<string>Flow Control</string>
 			<key>match</key>
-			<string>(?i)\b(if|depends)?\b</string>
+			<string>(?i)\b(if|endif|depends)?\b</string>
 			<key>name</key>
 			<string>keyword.control.kconfig</string>
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>Menus</string>
+			<string>Menu Entries</string>
 			<key>match</key>
-			<string>(?i)\b(config|menu|select|choice|source|endchoice)?\b</string>
+			<string>(?i)\b^(config|menuconfig|choice|endchoice|comment|menu|endmenu|source)?\b</string>
 			<key>name</key>
 			<string>keyword.control.menu.kconfig</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Numeric Values</string>
+			<key>match</key>
+			<string>(\s0x[0-9A-Fa-f]*|\s[0-9]*)</string>
+			<key>name</key>
+			<string>constant.numeric.cpu32</string>
 		</dict>
 	</array>
 	<key>scopeName</key>
