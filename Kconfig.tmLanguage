@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>kconfig</string>
+	</array>
+	<key>name</key>
+	<string>Kconfig</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>match</key>
+			<string>"[^"]*"</string>
+			<key>name</key>
+			<string>string.quoted.single.kconfig</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(\*.*$|\#.*$)</string>
+			<key>name</key>
+			<string>comment.kconfig</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Possible Config Values</string>
+			<key>match</key>
+			<string>\b(y|n|m)\b</string>
+			<key>name</key>
+			<string>constant.language.kconfig</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Kconfig Type Definition</string>
+			<key>match</key>
+			<string>(?i)\b(bool|tristate|string|hex|int)</string>
+			<key>name</key>
+			<string>storage.type.definition.kconfig</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Menu Attributes</string>
+			<key>match</key>
+			<string>(?i)\b(help|default|prompt|depends|range|option)?\b</string>
+			<key>name</key>
+			<string>entity.name.tag.menu.attributes.kconfig</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Flow Control</string>
+			<key>match</key>
+			<string>(?i)\b(if|depends)?\b</string>
+			<key>name</key>
+			<string>keyword.control.kconfig</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Menus</string>
+			<key>match</key>
+			<string>(?i)\b(config|menu|select|choice|source|endchoice)?\b</string>
+			<key>name</key>
+			<string>keyword.control.menu.kconfig</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.kconfig</string>
+	<key>uuid</key>
+	<string>a2fa95d2-7595-4a34-8332-14f2dfa0a0cc</string>
+</dict>
+</plist>
