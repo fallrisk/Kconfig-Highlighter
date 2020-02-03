@@ -1,0 +1,65 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Kconfig
+file_extensions:
+  - kconfig
+scope: source.kconfig
+contexts:
+  main:
+    - match: '"[^"]*"'
+      scope: string.quoted.single.kconfig
+    - match: (\#.*$)
+      scope: comment.kconfig
+    - match: \s+help\n
+      comment: Help Text
+      push:
+        - meta_scope: entity.name.tag.menu.attributes.kconfig
+        - match: (?=^\w)
+          pop: true
+        - match: (?=^\s+).*
+          scope: string.quoted.kconfig
+    - match: (?i)\t\b(bool|tristate|string|hex|int)
+      comment: Kconfig Type Definition
+      scope: storage.type.definition.kconfig
+    - match: (?i)\t\b(default|def_bool|prompt|range|option)?\b
+      comment: Menu Attributes
+      scope: entity.name.tag.menu.attributes.kconfig
+    - match: (?=\s*)\b(if|select|depends\s+on)\b
+      scope: keyword.control.kconfig
+      push:
+        - meta_scope: debug.control
+        - include: expression
+        - match: \n
+          pop: true
+    - match: (?i)\b(if|endif|depends)?\b
+      comment: Flow Control
+      scope: keyword.control.kconfig
+    - match: ^config
+      scope: keyword.control.menu.kconfig
+      push:
+        - match: \w+
+          scope: entity.name.config.kconfig
+        - match: \n
+          pop: true
+    - match: (?i)\b^(config|menuconfig|choice|endchoice|comment|menu|endmenu|source)?\b
+      comment: Menu Entries
+      scope: keyword.control.menu.kconfig
+    - match: '(\s0x[0-9A-Fa-f]*|\s[0-9]+)'
+      comment: Numeric Values
+      scope: constant.numeric.cpu32
+  expression:
+    - match: '\b[A-Z0-9_]+\b'
+      scope: support.constant.config.kconfig
+    - match: =
+      scope: keyword.operator.assignment
+      push:
+        - match: \b(y|n|m)\b
+          comment: Possible Config Values
+          scope: constant.language.kconfig
+          pop: true
+        - match: \w+
+          scope: variable.other.kconfig
+          pop: true
+    - match: '\|\||&&'
+      scope: keyword.operator.logical
