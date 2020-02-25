@@ -5,6 +5,7 @@
 	<key>fileTypes</key>
 	<array>
 		<string>kconfig</string>
+		<string>Kconfig</string>
 	</array>
 	<key>name</key>
 	<string>Kconfig</string>
