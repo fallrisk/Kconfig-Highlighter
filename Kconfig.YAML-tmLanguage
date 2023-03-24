@@ -47,8 +47,8 @@ patterns:
 
 - comment: Help Text
   name: entity.name.tag.menu.attributes.kconfig
-  begin: \thelp\n
-  end: ^config
+  begin: "[[:space:]]+help\n"
+  end: ^[[:space:]]*(config|choice)
   patterns:
   - include: $self
   - name: string.quoted.kconfig
@@ -60,11 +60,11 @@ patterns:
 
 - comment: Kconfig Type Definition
   name: storage.type.definition.kconfig
-  match: (?i)\t\b(bool|tristate|string|hex|int)
+  match: (?i)[[:space:]]+\b(bool|tristate|string|hex|int)
 
 - comment: Menu Attributes
   name: entity.name.tag.menu.attributes.kconfig
-  match: (?i)\t\b(default|def_bool|prompt|depends|range|option|select)?\b
+  match: (?i)[[:space:]]+\b(default|def_bool|prompt|depends|range|option|select)?\b
 
 - comment: Flow Control
   name: keyword.control.kconfig
@@ -72,7 +72,7 @@ patterns:
 
 - comment: Menu Entries
   name: keyword.control.menu.kconfig
-  match: (?i)\b^(config|menuconfig|choice|endchoice|comment|menu|endmenu|source)?\b
+  match: (?i)^[[:space:]]*(config|menuconfig|choice|endchoice|comment|menu|endmenu|source)?\b
 
 - comment: Numeric Values
   name: constant.numeric.cpu32
