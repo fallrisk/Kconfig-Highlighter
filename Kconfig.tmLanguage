@@ -24,11 +24,12 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\thelp\n</string>
+			<string>[[:space:]]+help
+</string>
 			<key>comment</key>
 			<string>Help Text</string>
 			<key>end</key>
-			<string>^config</string>
+			<string>^[[:space:]]*(config|choice)</string>
 			<key>name</key>
 			<string>entity.name.tag.menu.attributes.kconfig</string>
 			<key>patterns</key>
@@ -57,7 +58,7 @@
 			<key>comment</key>
 			<string>Kconfig Type Definition</string>
 			<key>match</key>
-			<string>(?i)\t\b(bool|tristate|string|hex|int)</string>
+			<string>(?i)[[:space:]]+\b(bool|tristate|string|hex|int)</string>
 			<key>name</key>
 			<string>storage.type.definition.kconfig</string>
 		</dict>
@@ -65,7 +66,7 @@
 			<key>comment</key>
 			<string>Menu Attributes</string>
 			<key>match</key>
-			<string>(?i)\t\b(default|def_bool|prompt|depends|range|option|select)?\b</string>
+			<string>(?i)[[:space:]]+\b(default|def_bool|prompt|depends|range|option|select)?\b</string>
 			<key>name</key>
 			<string>entity.name.tag.menu.attributes.kconfig</string>
 		</dict>
@@ -81,7 +82,7 @@
 			<key>comment</key>
 			<string>Menu Entries</string>
 			<key>match</key>
-			<string>(?i)\b^(config|menuconfig|choice|endchoice|comment|menu|endmenu|source)?\b</string>
+			<string>(?i)^[[:space:]]*(config|menuconfig|choice|endchoice|comment|menu|endmenu|source)?\b</string>
 			<key>name</key>
 			<string>keyword.control.menu.kconfig</string>
 		</dict>
